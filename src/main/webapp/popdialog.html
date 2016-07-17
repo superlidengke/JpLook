@@ -1,0 +1,67 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>页面选中文字分</title>
+<style>
+.img_sina_share{display:none; position:absolute; cursor:pointer;}
+</style>
+</head>
+
+<body>
+<div id="header">
+</div>
+<div id="main">
+	    <div id="body" class="light">
+    	<div id="content" class="show">
+        	<h3>展示</h3>
+            <div class="demo">
+            	<div id="testContent" class="f14">
+   
+                  <p>&nbsp;<wbr></wbr>&nbsp;<wbr></wbr>&nbsp;<wbr></wbr>
+                    7.听到晴川和四阿哥的谣言八阿哥生气找晴川并强吻了她见晴川哭了又反过来安慰她VS道明寺强吻杉菜</p>
+       </div>
+                <img id="imgSinaShare" class="img_sina_share" title="将选中内容分享到新浪微博" src="http://simg.sinajs.cn/blog7style/images/common/share.gif" />
+            </div>
+        </div>       
+    </div>
+</div>
+
+<script>
+var eleImgShare = document.getElementById("imgSinaShare");
+
+var $sinaMiniBlogShare = function(eleShare, eleContainer) {
+	var eleTitle = document.getElementsByTagName("title")[0];
+	eleContainer = eleContainer || document;
+	var funGetSelectTxt = function() {
+		var txt = "";
+		if(document.selection) {
+			txt = document.selection.createRange().text;	// IE
+		} else {
+			txt = document.getSelection();
+		}
+		return txt.toString();
+	};
+	eleContainer.onmouseup = function(e) {
+		e = e || window.event;
+		var txt = funGetSelectTxt(), sh = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+		var left = (e.clientX - 40 < 0) ? e.clientX + 20 : e.clientX - 40, top = (e.clientY - 40 < 0) ? e.clientY + sh + 20 : e.clientY + sh - 40;
+		if (txt) {
+			eleShare.style.display = "inline";
+			eleShare.style.left = left + "px";
+			eleShare.style.top = top + "px";
+		} else {
+			eleShare.style.display = "none";
+		}
+	};
+	eleShare.onclick = function() {
+		var txt = funGetSelectTxt(), title = (eleTitle && eleTitle.innerHTML)? eleTitle.innerHTML : "未命名页面";
+		if (txt) {
+			window.open('http://v.t.sina.com.cn/share/share.php?title=' + txt + '→来自页面"' + title + '"的文字片段&url=' + window.location.href);	
+		}
+	};
+}(eleImgShare);
+</script>
+</body>
+</html>

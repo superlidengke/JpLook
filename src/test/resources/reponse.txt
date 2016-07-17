@@ -1,0 +1,1 @@
+HJ.fun.jsonCallBack({content:"<div id='hjd_noresult'><div id='hjd_nodata_pnl'><div id='hjd_nodata_msg'> \u5BF9\u4E0D\u8D77\uFF0C\u6CA1\u6709\u67E5\u8BE2\u5230\u60A8\u8981\u7684\u5185\u5BB9\uFF01</div></div></div>",hjd_langs:"jc"});HJ.fun.changeLanguage('jc');

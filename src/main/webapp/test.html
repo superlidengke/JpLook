@@ -1,0 +1,39 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试</title>
+<style>
+</style>
+<script type="text/javascript">
+
+
+	var Car = function() {
+		// Instance Property
+		this.running = false;
+		// Instance Method
+		this.start = function() {//要有this
+			return this.running = true;
+		}
+	}
+	Car.prototype.stop = function() {
+		return this.running = false;
+	}
+	Car.price=50000;
+	Car.open=function (){
+		return Car.price;
+	}
+	var tesla = new Car();
+	// => false
+	console.log(tesla.running);
+	// => true
+	console.log(tesla.start());
+	// => false
+	console.log(tesla.stop());
+	console.log(Car.open());
+</script>
+</head>
+
+<body></body>
+</html>

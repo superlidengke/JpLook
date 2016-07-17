@@ -1,0 +1,54 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试</title>
+<style>
+</style>
+<script type="text/javascript">
+	//使用对象
+	var WordMap= function(){
+			var MAX_NUM=50;
+			var keys=new Array();
+			var values=new Array();
+			this.is_exist=function(key){
+				for(var i=0;i<keys.length;i++){
+					if(keys[i]==key){
+						return true;//包含此元素
+					}
+				}
+				return false;//不包含此元素
+			}
+		this.add= function(key, value) {
+			//若已存在，则不进行任何操作
+			if(this.is_exist(key)){
+				return;
+			}
+			//若不存在,并且已保存的元素达到上限，则删除第一个元素
+			if(keys.length>=MAX_NUM){
+				keys.shift();
+				delete vlaues[key];
+			}
+			//保存元素
+			keys.push(key);
+			values[key]=value;
+		}
+		this.getValue=function(key){
+			return values[key];
+		}
+		this.getKeys=function(){
+			return keys;
+		}
+
+	};
+
+	var wordMap=new WordMap();
+	wordMap.add("apple","苹果");
+	wordMap.add("月","月亮");
+	console.debug(wordMap.getKeys());
+</script>
+</head>
+
+<body></body>
+</html>
